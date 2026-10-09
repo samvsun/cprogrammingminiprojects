@@ -5,7 +5,12 @@ Keep the program running inside a do-while loop until the user explicitly select
 Clear the menu display for each iteration and print options clearly. */
 
 #include <stdio.h>
-int x = 0;
+#include <stdlib.h>
+void clearScreen() {
+    system("cls");
+}
+
+int main_menu_case = 0;
 int main() {
     do {
         printf("Welcome to the Interactive Converter Menu\nHere's a selection of options:\n");
@@ -16,11 +21,11 @@ int main() {
         printf("Option 5: Exit Converter\n");
         printf("Please enter a option:\n");
 
-        scanf("%d", &x);
-
-        switch (x) {
+        scanf("%d", &main_menu_case);
+        clearScreen();
+        switch (main_menu_case) {
             case 1:
-                int y = 0;
+                int case1_selection = 0;
                 printf("Please select a conversion option:\n");
                 printf("Option 1: Celsius to Fahrenheit\n");
                 printf("Option 2: Celsius to Kelvin\n");
@@ -28,11 +33,13 @@ int main() {
                 printf("Option 4: Back to Main Menu\n");
                 printf("Option 5: Exit Converter\n");
                 printf("Please enter a option:\n");
-                scanf("%d",&y);
-                switch (y)
-                {
+                scanf("%d", &case1_selection);
+                switch (case1_selection) {
                 case 1:
-                    printf("1-1\n");
+                    double celcius = 0.00;
+                    printf("Please enter input (Celcius):\n");
+                    scanf("%lf",celcius);
+                    printf("%lf",celcius);
                     
                     break;
                 case 2:
@@ -45,10 +52,12 @@ int main() {
             case 2:
                 printf("Case 2");
                 break;
+            case 5:
+                printf("Exiting Interactive Converter");
+                break;
             default:
                 printf("Invalid Input\n");
         }
-
-
-    } while (x != 5);
+            clearScreen;
+    } while (main_menu_case != 5);
 }
