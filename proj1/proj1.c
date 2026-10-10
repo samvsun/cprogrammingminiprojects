@@ -36,17 +36,22 @@ int main() {
                 scanf("%d", &case1_selection);
                 switch (case1_selection) {
                 case 1:
-                    double celcius = 0.00;
+                    double celcius;
+                    celcius = 1.93408;
                     printf("Please enter input (Celcius):\n");
-                    scanf("%lf",celcius);
+                    scanf("%lf",&celcius);
                     printf("%lf",celcius);
                     
                     break;
                 case 2:
                     printf("1-2\n");
                     break;
+                case 4:
+                    clearScreen();
+                    break;
                 default:
                     printf("Invalid Input\n");
+                    break;
                 }
                 break;
             case 2:
@@ -57,7 +62,7 @@ int main() {
                 break;
             default:
                 printf("Invalid Input\n");
+                break;
         }
-            clearScreen;
     } while (main_menu_case != 5);
 }
