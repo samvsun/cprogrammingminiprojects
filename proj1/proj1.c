@@ -36,18 +36,48 @@ int main() {
                 scanf("%d", &case1_selection);
                 switch (case1_selection) {
                 case 1:
-                    double celcius;
-                    celcius = 1.93408;
+                    double celciustofahrenheit;
+                    celciustofahrenheit = 1.93408;
                     printf("Please enter input (Celcius):\n");
-                    scanf("%lf",&celcius);
-                    printf("%lf",celcius);
-                    
+                    scanf("%lf",&celciustofahrenheit);
+                    if (celciustofahrenheit >= -273.15) {
+                        double fahrenheit_converted = (celciustofahrenheit * 9 / 5) + 32;
+                        printf("%lf in Fahrenheit is %lf\nReturning to main menu\n",celciustofahrenheit,fahrenheit_converted);
+                    } else {
+                        printf("Invalid Input\n");
+                    }
                     break;
                 case 2:
-                    printf("1-2\n");
+                    double celciustokelvin;
+                    celciustokelvin = 1.93408;
+                    printf("Please enter input (Celcius):\n");
+                    scanf("%lf",&celciustokelvin);
+                    if (celciustokelvin >= -273.15) {
+                        double kelvin_converted = celciustokelvin + 273;
+                        printf("%lf Celcius in Kelvin is %lf\nReturning to main menu\n",celciustokelvin,kelvin_converted);
+                    } else {
+                        printf("Invalid Input\n");
+                    }
+                    break;
+                case 3:
+                    double fahrenheittocelcius;
+                    fahrenheittocelcius = 1.93408;
+                    printf("Please enter input (Fahrenheit):\n");
+                    scanf("%lf",&fahrenheittocelcius);
+                    if (fahrenheittocelcius >= -459.67) {
+                        double celcius_converted = ((fahrenheittocelcius-32) * 5 / 9);
+                        printf("%lf Fahrenheit in Celcius is %lf\nReturning to main menu\n",fahrenheittocelcius,celcius_converted);
+                    } else {
+                        printf("Invalid Input\n");
+                    }
                     break;
                 case 4:
                     clearScreen();
+                    printf("Returning to main menu\n");
+                    break;
+                case 5:
+                    printf("Exiting Interactive Converter");
+                    main_menu_case = 5;
                     break;
                 default:
                     printf("Invalid Input\n");
