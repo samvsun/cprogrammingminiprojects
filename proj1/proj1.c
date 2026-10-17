@@ -85,7 +85,51 @@ int main() {
                 }
                 break;
             case 2:
-                printf("Case 2");
+                int case2_selection = 0;
+                printf("Please select a conversion option:\n");
+                printf("Option 1: Kilometers to Miles\n");
+                printf("Option 2: Miles to Kilometers\n");
+                printf("Option 3: Back to Main Menu\n");
+                printf("Option 4: Exit Converter\n");
+                printf("Please enter a option:\n");
+                scanf("%d", &case2_selection);
+                switch (case2_selection) {
+                case 1:
+                    double kilometerstomiles;
+                    kilometerstomiles = 1.93408;
+                    printf("Please enter input (Kilometers):\n");
+                    scanf("%lf",&kilometerstomiles);
+                    if (kilometerstomiles) {
+                        double miles_converted = kilometerstomiles * 0.621371;
+                        printf("%lf Miles in Kilometers is %lf\nReturning to main menu\n",kilometerstomiles,miles_converted);
+                    } else {
+                        printf("Invalid Input\n");
+                    }
+                    break;
+                case 2:
+                    double milestokm;
+                    milestokm = 1.93408;
+                    printf("Please enter input (Miles):\n");
+                    scanf("%lf",&milestokm);
+                    if (milestokm) {
+                        double km_converted = milestokm * 1.60934;
+                        printf("%lf Miles in Kilometers is %lf\nReturning to main menu\n",milestokm,km_converted);
+                    } else {
+                        printf("Invalid Input\n");
+                    }
+                    break;
+                case 3:
+                    clearScreen();
+                    printf("Returning to main menu\n");
+                    break;
+                case 4:
+                    printf("Exiting Interactive Converter");
+                    main_menu_case = 5;
+                    break;
+                default:
+                    printf("Invalid Input\n");
+                    break;
+                }
                 break;
             case 5:
                 printf("Exiting Interactive Converter");
