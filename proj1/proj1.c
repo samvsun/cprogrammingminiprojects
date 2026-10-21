@@ -10,6 +10,9 @@ void clearScreen() {
     system("cls");
 }
 
+double usd_to_inr_conversion_rate = 94.35;
+double inr_to_usd_conversion_rate = 0.01059;
+
 int main_menu_case = 0;
 int main() {
     do {
@@ -21,9 +24,10 @@ int main() {
         printf("Option 5: Exit Converter\n");
         printf("Please enter a option:\n");
 
-        int condition;
+        scanf("%d",&main_menu_case);
 
         clearScreen();
+
         switch (main_menu_case) {
             case 1:
                 int case1_selection = 0;
@@ -40,8 +44,7 @@ int main() {
                     double celciustofahrenheit;
                     celciustofahrenheit = 1.93408;
                     printf("Please enter input (Celcius):\n");
-                    scanf("%lf",&celciustofahrenheit);
-                    if (celciustofahrenheit >= -273.15) {
+                    if (scanf("%lf",&celciustofahrenheit) == 1 && celciustofahrenheit >= -273.15) {
                         double fahrenheit_converted = (celciustofahrenheit * 9 / 5) + 32;
                         printf("%lf in Fahrenheit is %lf\nReturning to main menu\n",celciustofahrenheit,fahrenheit_converted);
                     } else {
@@ -52,8 +55,7 @@ int main() {
                     double celciustokelvin;
                     celciustokelvin = 1.93408;
                     printf("Please enter input (Celcius):\n");
-                    scanf("%lf",&celciustokelvin);
-                    if (celciustokelvin >= -273.15) {
+                    if (scanf("%lf",&celciustokelvin) == 1 && celciustokelvin >= -273.15) {
                         double kelvin_converted = celciustokelvin + 273;
                         printf("%lf Celcius in Kelvin is %lf\nReturning to main menu\n",celciustokelvin,kelvin_converted);
                     } else {
@@ -64,8 +66,7 @@ int main() {
                     double fahrenheittocelcius;
                     fahrenheittocelcius = 1.93408;
                     printf("Please enter input (Fahrenheit):\n");
-                    scanf("%lf",&fahrenheittocelcius);
-                    if (fahrenheittocelcius >= -459.67) {
+                    if (scanf("%lf",&fahrenheittocelcius) == 1 && fahrenheittocelcius >= -459.67) {
                         double celcius_converted = ((fahrenheittocelcius-32) * 5 / 9);
                         printf("%lf Fahrenheit in Celcius is %lf\nReturning to main menu\n",fahrenheittocelcius,celcius_converted);
                     } else {
@@ -99,8 +100,7 @@ int main() {
                     double kilometerstomiles;
                     kilometerstomiles = 1.93408;
                     printf("Please enter input (Kilometers):\n");
-                    scanf("%lf",&kilometerstomiles);
-                    if (kilometerstomiles) {
+                    if (scanf("%lf",&kilometerstomiles) == 1) {
                         double miles_converted = kilometerstomiles * 0.621371;
                         printf("%lf Miles in Kilometers is %lf\nReturning to main menu\n",kilometerstomiles,miles_converted);
                     } else {
@@ -111,8 +111,7 @@ int main() {
                     double milestokm;
                     milestokm = 1.93408;
                     printf("Please enter input (Miles):\n");
-                    scanf("%lf",&milestokm);
-                    if (milestokm) {
+                    if (scanf("%lf",&milestokm) == 1) {
                         double km_converted = milestokm * 1.60934;
                         printf("%lf Miles in Kilometers is %lf\nReturning to main menu\n",milestokm,km_converted);
                     } else {
@@ -143,25 +142,23 @@ int main() {
                 scanf("%d", &case3_selection);
                 switch (case3_selection) {
                 case 1:
-                    double kilometerstomiles;
-                    kilometerstomiles = 1.93408;
-                    printf("Please enter input (Kilometers):\n");
-                    scanf("%lf",&kilometerstomiles);
-                    if (kilometerstomiles) {
-                        double miles_converted = kilometerstomiles * 0.621371;
-                        printf("%lf Miles in Kilometers is %lf\nReturning to main menu\n",kilometerstomiles,miles_converted);
+                    double inr_to_usd;
+                    inr_to_usd = 1.93408;
+                    printf("Please enter input (INR):\n");
+                    if (scanf("%lf",&inr_to_usd) == 1) {
+                        double usd_converted = inr_to_usd * inr_to_usd_conversion_rate;
+                        printf("%lf INR converted into USD is %lf\nReturning to main menu\n",inr_to_usd,usd_converted);
                     } else {
                         printf("Invalid Input\n");
                     }
                     break;
                 case 2:
-                    double milestokm;
-                    milestokm = 1.93408;
-                    printf("Please enter input (Miles):\n");
-                    scanf("%lf",&milestokm);
-                    if (milestokm) {
-                        double km_converted = milestokm * 1.60934;
-                        printf("%lf Miles in Kilometers is %lf\nReturning to main menu\n",milestokm,km_converted);
+                    double usd_to_inr;
+                    usd_to_inr = 1.93408;
+                    printf("Please enter input (USD):\n");
+                    if (scanf("%lf",&usd_to_inr) == 1) {
+                        double inr_converted =  usd_to_inr * usd_to_inr_conversion_rate;
+                        printf("%lf USD converted into INR is %lf\nReturning to main menu\n",usd_to_inr,inr_converted);
                     } else {
                         printf("Invalid Input\n");
                     }
@@ -185,6 +182,7 @@ int main() {
             default:
                 printf("Invalid Input\n");
                 break;
+        break;
         }
     } while (main_menu_case != 5);
 }
