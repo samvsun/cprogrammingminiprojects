@@ -132,7 +132,7 @@ int main() {
                 }
                 break;
             case 3:
-            int case3_selection = 0;
+                int case3_selection = 0;
                 printf("Please select a conversion option:\n");
                 printf("Option 1: INR to USD\n");
                 printf("Option 2: USD to INR\n");
@@ -162,6 +162,35 @@ int main() {
                     } else {
                         printf("Invalid Input\n");
                     }
+                    break;
+                case 3:
+                    clearScreen();
+                    printf("Returning to main menu\n");
+                    break;
+                case 4:
+                    printf("Exiting Interactive Converter");
+                    main_menu_case = 5;
+                    break;
+                    default:
+                    printf("Invalid Input\n");
+                    break;
+                }
+                break;
+            case 4: 
+                int case4_selection = 0;
+                printf("Please select a conversion option:\n");
+                printf("Option 1: Analog to Digital Converter (Temperature)\n");
+                printf("Option 2: Analog to Digital Converter (Voltage) (multivariable input and processing)\n");
+                printf("Option 3: Back to Main Menu\n");
+                printf("Option 4: Exit Converter\n");
+                printf("Please enter a option:\n");
+                scanf("%d", &case3_selection);
+                switch (case3_selection) {
+                case 1:
+
+                    break;
+                case 2:
+
                     break;
                 case 3:
                     clearScreen();
